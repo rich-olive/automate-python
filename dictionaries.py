@@ -98,3 +98,20 @@ print(f"Wesam's favourite number is {fave_numbers["wesam"]}")
 
 # model a glossary of five key programming terms
 
+# from automate python section on python
+
+translations = {
+    "hello" : "salam",
+    "goodbye" : "khodahafez",
+    "yes" : "baleh"
+}
+
+# length of a dictionary
+print(len(translations))
+
+# benefits of using a dictionary over a list
+# example: a list of students and their grades
+students_list = [
+    ["Olivia", 32, [85, 90, 95]],
+    ["Guy", 29]
+]
