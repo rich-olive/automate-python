@@ -2,13 +2,13 @@
 This repository documents my progress through The Python Automation Bootcamp (Work Smarter!): Zero to Mastery [https://zerotomastery.io/courses/learn-python-automation/].
 The course is broken up into sections: 
 
-Working with Files
-Paths and Folders
-Regular Expressions
-Automating Spreadsheets
-Automating Email
-APIs
-Automating ChatGPT
+* Working with Files
+* Paths and Folders
+* Regular Expressions
+* Automating Spreadsheets
+* Automating Email
+* APIs
+* Automating ChatGPT
 
 I have created separate branches for each section, and then merged them into main once complete. 
 
