@@ -10,11 +10,11 @@ with open("dad_jokes.csv", "r") as csv_file:
     # the for loop will iterate once for each row in the file
     next(csv_reader)
     for row in csv_reader:
-        # print(row)
-            joke_id = row[0]
-            joke = row[1]
-            joke_rating = row[2]
-            print(f"Joke number {joke_id}: {joke}. The rating of this joke is {joke_rating}")
+        print(row)
+            # joke_id = row[0]
+            # joke = row[1]
+            # joke_rating = row[2]
+            # print(f"Joke number {joke_id}: {joke}. The rating of this joke is {joke_rating}")
 # for the jokes csv, each row has 3 values: joke ID, joke, joke rating
 # CSV files often have a header row (cell headers)
 # currently: Joke number ï»¿ID: Joke. The rating of this joke is Rating
