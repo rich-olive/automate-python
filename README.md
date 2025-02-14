@@ -1,4 +1,4 @@
-﻿# automate-python
+﻿# Automate Python Course
 This repository documents my progress through The Python Automation Bootcamp (Work Smarter!): Zero to Mastery [https://zerotomastery.io/courses/learn-python-automation/].
 The course is broken up into sections: 
 
@@ -12,6 +12,11 @@ The course is broken up into sections:
 
 I have created separate branches for each section, and then merged them into main once complete. 
 
-The first project was a product sales tracker, in which some basic data (product codes) was provided in .txt format for me to convert into a meaningful spreadsheet. Using the raw data, I converted product codes into product names, with unit prices, a date of sale and an order of sale, and outputted as a spreadsheet. 
+## Product Sales Tracker
+The first project was a product sales tracker, in which some basic data (product codes) was provided in .txt format for me to convert into a meaningful spreadsheet. Using the raw data, I mapped product codes to product names and unit prices stored in a dictionary. I used enumerate() in a for loop to add a sequence of sale (this item was purchased first, that item second, etc.). I used datetime.date.today() and % format specifiers to add a correctly-formatted current date to each row. Finally, this more meaningful data was outputted as a spreadsheet (.csv) file. 
+
+I ran into a couple of issues when building this programme, namely I accidentally converted a dictionary look-up into a tuple, so the output was incorrect: asking ChatGPT a few questions (it alerted me to the fact that Python will identify a trailing comma as a tuple) and combing through the code helped me to catch the error. Also, the current date was misformatted in the spreadsheet; I researched format specifiers to fix this. 
+
+This first project has also helped me to get back into the flow of using git commands. Even writing this README has improved my knowledge of markdown. It's been a very positive and fruitful project for me!
 
 This project inspired me to create the Shopping List applet. This applet runs as a CLI in which users can select user-defined number of meals from a list, and a shopping list of ingredients and quanitites is created in spreadsheet format. 
