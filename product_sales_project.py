@@ -70,14 +70,20 @@ with open("product_sales.txt", "r") as product_sales_file:
     product_sales_content = product_sales_file.readlines()
 
     for index, row in enumerate(product_sales_content):
+        # added this line to reduce duplicate code and make it clearer that i'm stripping the row whitespace
+        row = row.strip()
         # probably clearer to save each into a temp var and then append
         current_date = datetime.date.today()
         # sale_id = 1 #dummy data for now
         sale_id = index+1
         # this and enumerate works nicely for creating a sequential sale id
-        product_id = row.strip()
-        product_name = str(product_data[row.strip()]["product_name"]),
-        unit_price = product_data[row.strip()]["unit_price"]
+        # product_id = row.strip()
+        # product_name = str(product_data[row.strip()]["product_name"]),
+        # unit_price = product_data[row.strip()]["unit_price"]
+
+        product_id = row
+        product_name = product_data[row]["product_name"]
+        unit_price = product_data[row]["unit_price"]
 
         meaningful_sales_data.append([current_date, sale_id, product_id, product_name, unit_price])
         # current date not correctly formatted- if I manually change the format on excel, it does show today's date...
@@ -115,6 +121,17 @@ with open("product_sales_data.csv", "w", newline="") as output:
     data_write_object.writerows(meaningful_sales_data)
 # this worked! there is the newline issue to deal with- add newline="" to the with statement
 # need to add headers
+
+# weird product name display issue
+# product_name appearing in ('') when opening in excel file
+# appending it directly seems to work ?? both return <class str>
+# found the error!!
+# i added a comma at the end of the product_name = product_data[row]["product_name"],
+# python reads this comma as a tuple
+# and the class was actually returning <tuple> when printing to the console
+# hence why the direct add to the list was not producing ("Wireless Headphones")
+# - the comma there did not affect adding things to the meaningful_data list
+# it's probably a hangover from when the data was initially all added at once when i was building programme
 
 # create a new CSV file with the headings
 # current_date
