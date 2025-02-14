@@ -1,4 +1,6 @@
 import csv
+import datetime
+
 # 1. Reads a text file containing a list of product IDs signifying product sales transactions.
 # 2. Uses that data to generate a CSV file containing the following data points associated with each transaction:
     # a. A sequential ID indicating the order of the individual transaction within the file.
@@ -60,16 +62,36 @@ product_data = {
 # to map to the product name in the dictionary
 # need somewhere to store this data
 
-product_names = []
+# product_names = []
+
+meaningful_sales_data = []
 
 with open("product_sales.txt", "r") as product_sales_file:
     product_sales_content = product_sales_file.readlines()
 
     for row in product_sales_content:
-        # print(product_data[row.strip()]["product_name"])
-        product_names.append(product_data[row.strip()]["product_name"])
+        # probably clearer to save each into a temp var and then append
+        current_date = datetime.date.today()
+        sale_id = 1 #dummy data for now
+        product_id = row.strip()
+        product_name = product_data[row.strip()]["product_name"],
+        unit_price = product_data[row.strip()]["unit_price"]
 
-print(product_names)
+        meaningful_sales_data.append([current_date, sale_id, product_id, product_name, unit_price])
+
+
+        # meaningful_sales_data.append([row.strip(), product_data[row.strip()]["product_name"], product_data[row.strip()]["unit_price"]])
+        # [['P005', 'Mobile Phone Case', 15], ['P001', 'Wireless Headphones', 100], ['P001', 'Wireless Headphones', 100]...]
+        # meaningful_sales_data.append(product_data[row.strip()]["product_name"])
+        # meaningful_sales_data.append(product_data[row.strip()]["unit_price"])
+        # adding all thus: ['P005', 'Mobile Phone Case', 15, 'P001', 'Wireless Headphones', 100, 'P001', 'Wireless Headphones', 100, 'P006', 'Wireless Mouse', 30...]
+        # so this would produce data all on the same row
+        # so how to now create multiple lines
+        # print(product_data[row.strip()]["product_name"])
+        # product_names.append(product_data[row.strip()]["product_name"])
+
+# print(product_names)
+print(meaningful_sales_data)
 # success!
 # had to strip the whitespace/tabs as the error was showing "P005\n"
 # checked against first & last few entries in the .txt file
@@ -78,6 +100,20 @@ print(product_names)
 # save this to a variable!
 # assign the actual product/unit price
 # use the order of entries to create a 'sale_id' (when the item was purchased- sequential!)
+
+# TEST OUTPUT
+with open("product_sales_data.csv", "w", newline="") as output:
+    data_write_object = csv.writer(output)
+    data_write_object.writerow(["current_date", "sale_id", "product_id", "name", "price"])
+    # added headers however, not quite right as we need to add the current date values and sale id values
+    # prod_id (prod code: P001, etc) is next
+    # then name and price
+    data_write_object.writerows(meaningful_sales_data)
+# this worked! there is the newline issue to deal with- add newline="" to the with statement
+# need to add headers
+
+
+
 
 # create a new CSV file with the headings
 # current_date
