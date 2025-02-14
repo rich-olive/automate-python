@@ -1,5 +1,5 @@
 ﻿# Automate Python Course
-This repository documents my progress through The Python Automation Bootcamp (Work Smarter!): Zero to Mastery [https://zerotomastery.io/courses/learn-python-automation/].
+This repository documents my progress through **The Python Automation Bootcamp (Work Smarter!): Zero to Mastery** [https://zerotomastery.io/courses/learn-python-automation/].
 The course is broken up into sections: 
 
 * Working with Files
