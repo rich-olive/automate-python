@@ -111,7 +111,69 @@ print(len(translations))
 
 # benefits of using a dictionary over a list
 # example: a list of students and their grades
+
 students_list = [
     ["Olivia", 32, [85, 90, 95]],
-    ["Guy", 29]
+    ["Guy", 29, [82, 92, 90]],
+    ["Lisa", 66, [96, 99, 100]]
 ]
+
+# using a list, each student is a nested list containing name, age and another nested list
+# containing their grades from 3 classes
+# thus trying to access specific data from this list is tricky
+# how to access Lisa's second grade?
+# we'd need to know that Lisa is the third nested list, etc.
+
+students_dictionary = {
+    "Olivia": {"age": 32, "grades": [85, 90, 95]},
+    "Guy": {"age" : 29, "grades" : [82, 92, 90]},
+    "Lisa": {"age" : 66, "grades" : [96, 99, 100]},
+}
+
+# using a dictionary, it's much easier to access the info we need
+# now we can look up Guy's grades by targeting students_dictionary["Guy"]
+
+olivia_age_from_list = students_list[0][1]
+print(f"Olivia's age from a list: {olivia_age_from_list}")
+olivia_age = students_dictionary["Olivia"]["age"]
+print(f"Olivia's age is {olivia_age}.")
+
+# less traversal as well!
+
+lisa_grade_2 = students_dictionary["Lisa"]["grades"][1]
+print(f"Lisa's second grade: {lisa_grade_2}")
+
+# looping over a dictionary
+# each iteration of looping over a dictionary can give us a key, a value or both
+
+person = {
+    "name": "Olivia",
+    "age": 32,
+    "job": "office pig"
+}
+
+# loop/print each key
+for key in person:
+    print(key)
+
+# .values() to print the values
+print(person.values())
+# dict_values(['Olivia', 32, 'office pig'])
+for value in person.values():
+    print(value)
+
+# access keys and values
+# generate readable summaries
+
+# .items()
+print(person.items())
+# dict_items([('name', 'Olivia'), ('age', 32), ('job', 'office pig')])
+# list of tuples
+
+# tuple unpacking
+# each item returned by .items() is a tuple containing 2 items (key and its value)
+# we can unpack those two into separate variables
+
+for key, value in person.items():
+    output = f"{key} : {value}"
+    print(output)
