@@ -133,6 +133,25 @@ with open("product_sales_data.csv", "w", newline="") as output:
 # - the comma there did not affect adding things to the meaningful_data list
 # it's probably a hangover from when the data was initially all added at once when i was building programme
 
+
+
+# the format of the current date when opening excel file
+# fixed by using f string with % format specifiers
+# today_date = datetime.date.today()
+# current_date = f"{today_date: %d-%m-%Y}"
+# this creates the format 14-02-2025
+#https://mathspp.com/blog/twitter-threads/datetime-objects-and-f-strings#:~:text=In%20Python%20%F0%9F%90%8D%2C%20the%20built,%3E%3E%3E%20now%20%3D%20dt.
+# and see W3 schools
+# i also created a variable to carry out this logic, and moved it outside of the for loop so that it doesn't
+# need to run every time i run the loop/every iteration of the loop
+# i refactored this further by eradicating the temporary today_date variable
+# current_date = f"{datetime.date.today(): %d-%m-%Y}"
+# though it might be CLEARER to use current_date with the datetime.date.today() logic
+# and then reassign it to the formatted string
+# current_date = datetime.date.today()
+# current_date = f"{current_date: %d-%m-%Y}"
+# i'll keep it like this!
+
 # create a new CSV file with the headings
 # current_date
 # sale_id

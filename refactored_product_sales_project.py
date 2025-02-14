@@ -25,17 +25,18 @@ product_data = {
     }
 
 meaningful_sales_data = []
+current_date = datetime.date.today()
+current_date = f"{current_date: %d-%m-%Y}"
 
 with open("product_sales.txt", "r") as product_sales_file:
     product_sales_content = product_sales_file.readlines()
 
     for index, row in enumerate(product_sales_content):
         row = row.strip()
-        current_date = datetime.date.today()
         sale_id = index+1
-        product_id = row.strip()
-        product_name = product_data[row]["product_name"]
-        unit_price = product_data[row]["unit_price"]
+        product_id = row
+        product_name = product_data[product_id]["product_name"]
+        unit_price = product_data[product_id]["unit_price"]
         meaningful_sales_data.append([current_date, sale_id, product_id, product_name, unit_price])
 
 
@@ -46,5 +47,4 @@ with open("refactored_product_sales_data.csv", "w", newline="") as output:
     data_write_object.writerow(["current_date", "sale_id", "product_id", "name", "price"])
     data_write_object.writerows(meaningful_sales_data)
 
-# remaining issues:
-# the format of the current date when opening excel file
+
