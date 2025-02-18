@@ -27,6 +27,7 @@ product_data = {
 meaningful_sales_data = []
 current_date = datetime.date.today()
 current_date = f"{current_date: %d-%m-%Y}"
+total_price = 0
 
 with open("product_sales.txt", "r") as product_sales_file:
     product_sales_content = product_sales_file.readlines()
@@ -38,6 +39,7 @@ with open("product_sales.txt", "r") as product_sales_file:
         product_name = product_data[product_id]["product_name"]
         unit_price = product_data[product_id]["unit_price"]
         meaningful_sales_data.append([current_date, sale_id, product_id, product_name, unit_price])
+        total_price += unit_price
 
 
 print(meaningful_sales_data)
@@ -46,5 +48,7 @@ with open("refactored_product_sales_data.csv", "w", newline="") as output:
     data_write_object = csv.writer(output)
     data_write_object.writerow(["current_date", "sale_id", "product_id", "name", "price"])
     data_write_object.writerows(meaningful_sales_data)
-
+    data_write_object.writerow(["", "", "", "Total:", f"£{total_price:02}"])
+    # the empty "" place the "Total" and the numerical total in the correct place
+    # the :02 format specifier inside the {} specify to use two decimal places, good for currency
 
