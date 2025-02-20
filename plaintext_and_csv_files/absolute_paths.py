@@ -2,7 +2,7 @@
 # from the address bar, right click and select copy address as text
 # C:\Users\olivi\PycharmProjects\automate_python\absolute_v_relative
 
-path = "C:\\Users\olivi\PycharmProjects\\automate_python\\absolute_v_relative\dad_jokes.txt"
+path = "/absolute_v_relative/dad_jokes.txt"
 
 # beware escape characters
 # add the actual file name at the end: dad_jokes.txt
