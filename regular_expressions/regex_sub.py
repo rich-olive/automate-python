@@ -20,3 +20,8 @@ pattern = r"(\d{2})/(\d{2})/(\d{4})"
 reformat_dates = re.sub(pattern, r"\3-\1-\2", month_text)
 print(reformat_dates)
 # The event will take place on the 2024-02-14. Please purchase tickets by 2024-01-01.
+
+example_string = "the parcel will arrive on June 21, 2023"
+example_regex = r"(\w+) (\d{1,2}), (\d{4})"
+example_replace = re.sub(example_regex, r"\2-06-\3", example_string)
+print(example_replace)

@@ -63,3 +63,13 @@
 # $ denotes end of string
 # ^Hello = only matches start of string hello
 # ^\d{5}$ = only looking for a 5 digit number with nothing preceding or following
+
+# IGNORECASE
+# ignores the case
+
+# MULTILINE
+# makes ^ and $ match entire lines, instead of entire string
+
+# DOTALL
+# makes the dot character match all characters, including new lines
+
