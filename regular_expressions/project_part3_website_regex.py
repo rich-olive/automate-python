@@ -15,7 +15,12 @@ import re
 # preceding the “dot” in the website address either comes at the beginning of the string,
 # or after a word in the text -NOT after an “@” sign.
 
-website_regex = r"((^|\s|www\.)\w+\.(com|org|net|co\.uk))"
+# website_regex_www = r"((^|\s|www\.)\w+\.(com|org|net|co\.uk))"
+website_regex = r"((^|\s|)(\w+\.(com|org|net|co\.uk)))"
+# added brackets to the main part of the website, so I can isolate it further
+# i.e. by accessing .group(2) when writing the address to the file
+# had to remove the www. though, which ideally I'd keep in!
+
 
 # examples
 test_website_com =  "website.com"
@@ -70,3 +75,10 @@ else:
 
 # I'm not totally happy with how I've isolated web addresses from email addresses
 # it could definitely use some work/more thought
+
+# while the start anchor/whitespace character is technically part of your regex pattern,
+# it should not be included in the string you ultimately write to a text file.
+# That means you’ll need to put the rest of the pattern in a group of its own,
+# so it can be captured separately.
+
+# this has given me something to think on ^
