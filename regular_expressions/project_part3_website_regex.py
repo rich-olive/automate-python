@@ -66,3 +66,7 @@ if check_string_containing_website is not None:
     print(check_string_containing_website.group())
 else:
     print("invalid")
+
+
+# I'm not totally happy with how I've isolated web addresses from email addresses
+# it could definitely use some work/more thought
