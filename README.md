@@ -35,3 +35,24 @@ Unlike the previous project, in which I documented all my attempts and their out
 After solving the project independently, I watched the solution video. I then copied out the solution code and analysed each line. It was much cleaner than my own code, and it also highlighted some points that I missed or forgot from the previous lessons. 
 
 Overall, it was fun watching the files be effortlessly sorted into the correct folders, and I am pleased with the neat little script I wrote!
+
+## Contact Info Extractor Project
+
+This whole section has finally helped me to understand regular expressions after years of avoiding the topic! I feel a lot more confident to tackle problems using regex now. 
+
+In this project, an example text file was provided. It contained an email message concerning a business transaction. In it were several phone numbers, email addresses and website addresses. The goal was to write a program, using regex, to parse this email and extract all the phone numbers, email addresses and website addresses, and then create a new text file for each. 
+
+The hardest part of the project was writing the regex patterns. I decided to write and test each pattern in separate files, hence there is "project_part1_phone_number_regex.py", etc. I tried to test for different cases, such as phone numbers with hyphens or spaces, invalid email addresses, and whether a string contained an email address or a website. After practising and testing the patterns, I moved onto writing the logic for the actual program. The patterns needed tweaking as I worked. The reading and writing of new files felt quite comfortable (though I did forget about the .writelines() method!). 
+
+I was pleased with how quickly the project came together, and I actually had a lot of fun writing the test cases. I couldn't get my head around how to strip out the whitespace from the start of website addresses. I went a bit overkill on trying to remove duplicate values by writing a function and then using that function in a for loop; this was mostly to test whether it would work, however, which I figured it would due to the first class citizenship of functions in Python. 
+
+After finishing the project, I watched the solution videos and typed out the code with comments to understand exactly what was going on. I found it really helpful to do this! It helped me better understand some key regex features such as character ranges and using the optional metacharacter (?). Crucially, it enabled me to understand where I had gone wrong with not being able to strip the whitespace from the website addresses!
+
+The .findall() method, when used with a regex pattern containing a group (indicated by the use of brackets()), returns a list containing tuples. So, the results for websites looked like this:
+
+```[('', 'TechFusion.com', 'com'), (' ', 'TechSupport.net', 'net'), (' ', 'PMguidelines.org', 'org'), (' ', 'TechFusion.com', 'com')]```
+
+In order to remove the whitespace, we have to index the tuple using square bracket notation, to ensure we target the actual domain name part of the result (e.g. "TechFusion.com"), rather than just adding the entire tuple to the new text file. I now better understand the use of brackets to create groups in regex patterns. 
+
+It was a great project, overall!
+
