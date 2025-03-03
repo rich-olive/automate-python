@@ -24,18 +24,27 @@ rng = ws[cell_range]
 
 # print(rng)
 
-# range generates a sequence of numbers to iterate over
-# starts at zero and goes to the argument we feed it (len(data) minus one
 for i in range(len(data)):
     row = data[i]
-    print("We say hello to:", i, row)
-    # this time iterating across the number of items in the row!
     for j in range(len(row)):
         val = row[j]
-        print("In this row is:", j, val)
-        print(row[j]) # val == row[j] == data[i][j]
-        print(data[i][j])
         rng[i][j].value = val
+
+wb.save("products.xlsx")
+
+
+# range generates a sequence of numbers to iterate over
+# starts at zero and goes to the argument we feed it (len(data) minus one
+# for i in range(len(data)):
+#     row = data[i]
+#     print("We say hello to:", i, row)
+#     # this time iterating across the number of items in the row!
+#     for j in range(len(row)):
+#         val = row[j]
+#         print("In this row is:", j, val)
+#         print(row[j]) # val == row[j] == data[i][j]
+#         print(data[i][j])
+#         rng[i][j].value = val
 
 # i = 0: ['Product', 'Category', 'Price']
 # j = 0: "Product"
@@ -46,6 +55,3 @@ for i in range(len(data)):
 # j = 1: "Electronics"
 # j = 2: 799
 
-
-
-wb.save("products.xlsx")

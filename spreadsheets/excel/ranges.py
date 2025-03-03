@@ -8,6 +8,8 @@ ws = wb["Ratings"]
 # B2 - E11
 # for one dimensional: B2-B11
 
+rng2 = ws["B2:B6"]
+print(rng2)
 rng = ws["B2:E11"]
 print(rng) #((<Cell 'Ratings'.B2>, <Cell 'Ratings'.C2>, <Cell 'Ratings'.D2>, <Cell 'Ratings'.E2>),...
 # a tuple containing more tuples
