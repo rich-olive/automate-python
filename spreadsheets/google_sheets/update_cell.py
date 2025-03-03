@@ -1,6 +1,6 @@
 import gspread
 
-gc = gspread.service_account('service_account_credentials.json')
+gc = gspread.service_account(r"C:\Users\olivi\Desktop\Google Credentials\service_account_credentials.json")
 
 # interacting with a pre-existing gsheet
 spreadsheet = gc.open("gspread101")
